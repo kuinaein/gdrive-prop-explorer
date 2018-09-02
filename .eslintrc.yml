@@ -1,0 +1,30 @@
+extends: google
+plugins:
+  - googleappsscript
+  - html
+
+overrides:
+  - files: '*.gs'
+    env:
+      googleappsscript/googleappsscript: true
+    rules:
+      no-var: off
+      no-unused-vars:
+        - error
+        - vars: local
+          args: none
+          caughtErrors: all
+      prefer-spread: off
+
+  - files: '*.html'
+    env:
+      es6: true
+    rules:
+      object-curly-spacing:
+        - error
+        - always
+
+  - files: '*.js'
+    env:
+      node: true
+      es6: true
